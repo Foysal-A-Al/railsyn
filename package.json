@@ -1,0 +1,16 @@
+{
+  "name": "railsyn",
+  "version": "0.5.1",
+  "private": true,
+  "type": "module",
+  "description": "Sensor-aware robot and rail cooperation research prototype",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test tests/unit/*.test.mjs",
+    "test:selection": "node tests/browser/selection.mjs",
+    "test:stop": "node tests/browser/stop.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

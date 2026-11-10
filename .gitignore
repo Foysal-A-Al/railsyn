@@ -1,0 +1,25 @@
+# Dependencies and caches
+node_modules/
+__pycache__/
+*.py[cod]
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Internal QA, recordings and exports
+.qa/
+exports/
+run-*.json
+*.log
+# Temporary files
+tmp/
+*.tmp
+*.bak
+*.zip
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
