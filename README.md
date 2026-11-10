@@ -1,6 +1,6 @@
 <div align="center">
 
-# RailSyn
+# 🤖 RailSyn
 
 ### Three robots. Three distinct jobs. One coordinated rail line.
 
@@ -10,9 +10,7 @@ An interactive assembly simulator for operator-selected products, robot coordina
 
 </div>
 
-![RailSyn workbench with numbered part trays, a 3D cap station, and the robot controller](docs/images/workbench.png)
-
-*Application screenshot from v0.5.0. Version 0.5.1 reorganizes the source and documentation while preserving this interface and process behavior.*
+![RailSyn — Three robots. One coordinated line.](docs/images/banner.svg)
 
 ## Overview
 
@@ -130,7 +128,7 @@ The optional measurement bridge forwards data through the local HTTP ingress. It
 | `tests/unit/` | Simulation and asset regression tests |
 | `tests/browser/` | Windows Chrome controller workflows |
 | `docs/` | User guide, architecture, integration, research, validation, and credits |
-| `docs/images/` | Documentation screenshots |
+| `docs/images/` | Project banner and documentation artwork |
 | `start.cmd` | Windows launcher |
 | `SECURITY.md` | Local security boundaries and reporting guidance |
 | `CHANGELOG.md` | Version history |

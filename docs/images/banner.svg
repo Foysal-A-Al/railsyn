@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="440" viewBox="0 0 1600 440" role="img" aria-labelledby="title desc">
+  <title id="title">RailSyn — Three robots. One coordinated line.</title>
+  <desc id="desc">RailSyn project banner with an abstract rail and three distinct robot stations.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b172c"/><stop offset="1" stop-color="#122c48"/></linearGradient>
+    <linearGradient id="rail"><stop stop-color="#2b6eb1"/><stop offset="1" stop-color="#54d5cd"/></linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#aec9e4" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="1600" height="440" rx="24" fill="url(#bg)"/>
+  <rect width="1600" height="440" rx="24" fill="url(#grid)"/>
+  <path d="M0 434H1600" stroke="url(#rail)" stroke-width="12"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="76" y="82" fill="#63d4d0" font-size="17" font-weight="600" letter-spacing="4">ROBOTICS / ASSEMBLY / COORDINATION</text>
+    <text x="70" y="197" fill="#f5f9ff" font-size="103" font-weight="750" letter-spacing="-4">RailSyn<tspan fill="#61d7d0">.</tspan></text>
+    <text x="76" y="251" fill="#b8cce0" font-size="27">Three robots. One coordinated line.</text>
+    <g font-size="15" font-weight="600" letter-spacing="1">
+      <rect x="76" y="301" width="188" height="42" rx="21" fill="#1c3853"/><text x="170" y="328" text-anchor="middle" fill="#e5effa">SELECT YOUR PARTS</text>
+      <rect x="278" y="301" width="170" height="42" rx="21" fill="#1c3853"/><text x="363" y="328" text-anchor="middle" fill="#e5effa">RUN ONE JOB</text>
+      <rect x="462" y="301" width="163" height="42" rx="21" fill="#163d48"/><text x="543.5" y="328" text-anchor="middle" fill="#81e0d6">INSPECT OUTPUT</text>
+    </g>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="870" y="226" width="618" height="132" rx="54" stroke="#385571" stroke-width="23"/>
+      <rect x="870" y="226" width="618" height="132" rx="54" stroke="url(#rail)" stroke-width="3"/>
+      <path d="M926 358h490" stroke="#7a9bb7" stroke-opacity=".55" stroke-width="2" stroke-dasharray="4 12"/>
+      <g stroke-width="16">
+        <path d="M967 202v-45l-41-35 31-43" stroke="#f3a255"/>
+        <path d="M1179 202v-45l40-35-31-43" stroke="#97c4ef"/>
+        <path d="M1391 202v-45l-41-35 31-43" stroke="#6ed8cb"/>
+      </g>
+      <g fill="#10243a" stroke-width="4">
+        <circle cx="926" cy="122" r="13" stroke="#f3a255"/><circle cx="967" cy="157" r="13" stroke="#f3a255"/>
+        <circle cx="1219" cy="122" r="13" stroke="#97c4ef"/><circle cx="1179" cy="157" r="13" stroke="#97c4ef"/>
+        <circle cx="1350" cy="122" r="13" stroke="#6ed8cb"/><circle cx="1391" cy="157" r="13" stroke="#6ed8cb"/>
+      </g>
+    </g>
+    <g fill="#1d3b56" stroke="#4c708e" stroke-width="2"><rect x="943" y="197" width="48" height="18" rx="5"/><rect x="1155" y="197" width="48" height="18" rx="5"/><rect x="1367" y="197" width="48" height="18" rx="5"/></g>
+    <g font-size="14" font-weight="600" text-anchor="middle" letter-spacing="2"><text x="967" y="277" fill="#f3b57a">01 / LOAD</text><text x="1179" y="277" fill="#a9d1f5">02 / CAP</text><text x="1391" y="277" fill="#83e2d7">03 / CLOSE</text></g>
+    <g transform="translate(1085 342)"><rect width="53" height="31" rx="8" fill="#f5f9ff"/><rect x="11" y="-9" width="31" height="17" rx="5" fill="#65d6cf"/></g>
+    <text x="76" y="391" fill="#7192ae" font-size="14" letter-spacing="2">LOCAL 3D SIMULATION</text>
+  </g>
+</svg>
