@@ -25,3 +25,11 @@ This is targeted prototype verification, not a comprehensive security audit, phy
 ## 0.5.1 organization checks
 
 The source layout and import paths were reviewed after relocation. The previously recorded 31 passing model tests and Windows Chrome workflow belong to version 0.5.0; they are historical evidence, not a fresh execution of the reorganized tree. Post-organization runtime tests were not executed because the required isolated execution environment was unavailable in this session.
+
+## 0.5.2 Docker verification
+
+All **35 unit tests passed** in a dedicated Docker test image based on the pinned Node 24 Alpine manifest. The test process ran as a non-root user with no network, no host mounts, a read-only image, an explicitly bounded temporary directory, dropped capabilities, disabled privilege escalation, and CPU/memory/process/file limits. A 45-second supervisor bound applied; the test report completed in approximately 5 seconds. Four new tests cover native defaults, dedicated Docker port/origin configuration, malformed ports, and unsupported bind interfaces.
+
+The Compose configuration was validated and the runtime image built locally. The dedicated `railsyn` project was launched on host loopback **8640**, and the browser-facing state endpoint responded with version 0.5.2, `mode: simulation`, `hardwareOutput: false`, `running: false`, `selectionConfirmed: false`, and zero completed assemblies. The image health check reads this state without starting motion. Other projects and native port 8630 were left untouched.
+
+The runtime uses a dedicated bridge network with inter-container communication disabled. The deployment's normal loopback API response was checked; this was not a new graphical/browser regression or a full security audit. The previous Windows Chrome workflow remains recorded above. No physical equipment was controlled.

@@ -1,0 +1,12 @@
+# Build from an explicit source allowlist; never send local recordings or credentials.
+**
+!Dockerfile
+!package.json
+!src/
+!src/**
+!public/
+!public/**
+!tests/
+!tests/unit/
+!tests/unit/**
+!tests/helpers.mjs

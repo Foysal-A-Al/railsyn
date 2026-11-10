@@ -3,7 +3,8 @@ import {readFile} from 'node:fs/promises';
 import {randomBytes, timingSafeEqual} from 'node:crypto';
 import {execFile} from 'node:child_process';
 import {Cell} from './simulation.mjs';
-const port=8630, host='127.0.0.1', origin=`http://${host}:${port}`;
+import {getConfig} from './config.mjs';
+const {port,host,listenHost,origin}=getConfig(process.env);
 const root=new URL('../public/',import.meta.url);
 const token=randomBytes(32).toString('hex');
 const cell=new Cell();
@@ -48,7 +49,7 @@ const server=http.createServer(async(req,res)=>{
 });
 // Fixed ticks keep the synthetic accelerometer at 200 Hz. UI speed changes stage timing only.
 const timer=setInterval(()=>cell.tick(.05),50);
-server.listen(port,host,()=>{
+server.listen(port,listenHost,()=>{
   console.log(`RailSyn ready: ${origin}\nMode: simulation. Physical command output disabled.`);
   if(process.argv.includes('--open')&&process.platform==='win32')execFile('explorer.exe',[origin],()=>{});
 });

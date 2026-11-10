@@ -19,7 +19,7 @@ The focus is on understanding **which part was selected, which robot owns the ne
 
 Each **Run** executes one chosen assembly. After unloading and the empty carrier's return, RailSyn waits for the next explicit selection. There is no automatic part matching or unattended batch execution.
 
-> **Project status:** research prototype, version 0.5.1. RailSyn simulates equipment; it does not command physical robots. Robot geometry is estimated, and arbitrary part combinations are not checked for real-world mechanical fit.
+> **Project status:** research prototype, version 0.5.2. RailSyn simulates equipment; it does not command physical robots. Robot geometry is estimated, and arbitrary part combinations are not checked for real-world mechanical fit.
 
 ## Capabilities
 
@@ -36,27 +36,37 @@ Each **Run** executes one chosen assembly. After unloading and the empty carrier
 
 ## Quick start
 
-### Requirements
+### Docker Desktop
 
-- **Node.js 22 or later**; npm is used only to invoke the included scripts.
-- A modern browser with **WebGL** support.
-- GitHub access to this private repository when cloning.
-
-Three.js and the runtime 3D assets are bundled. Normal use requires no dependency installation, API key, cloud account, or Blender installation.
-
-### Clone and launch
+With Docker Desktop running, clone the repository and launch the dedicated service:
 
 ```sh
 git clone https://github.com/Foysal-A-Al/railsyn.git
 cd railsyn
+docker compose up -d --build
+```
+
+Open **<http://127.0.0.1:8640>**. Docker RailSyn uses its own port **8640**; the native port 8630 and other projects are left untouched. The service appears under the **railsyn** Compose project in Docker Desktop.
+
+```sh
+docker compose ps                 # Service and health
+docker compose logs --tail=50 app  # Recent logs
+docker compose stop               # Stop RailSyn
+```
+
+The image runs without root privileges, with a read-only filesystem and loopback-only host publishing. See the [Docker guide](docs/docker.md) for rebuilding, isolated tests and lifecycle details.
+
+### Native Node.js
+
+Requires Node.js 22 or later and a modern WebGL-capable browser. Three.js and the runtime 3D assets are bundled; no dependency installation, API key or Blender installation is needed for normal use.
+
+```sh
 npm start
 ```
 
-Open **<http://127.0.0.1:8630>**.
+Open **<http://127.0.0.1:8630>**. On Windows, double-click **`start.cmd`**. Existing `Start-RailSyn.cmd` shortcuts and `node server.mjs` commands remain supported.
 
-On Windows, you can also double-click **`start.cmd`** after cloning. Existing shortcuts using `Start-RailSyn.cmd` and terminal commands using `node server.mjs` remain supported.
-
-**Starting the server does not start an assembly.** Choose the parts and press Run in the application.
+**Starting either server does not start an assembly.** Select the parts and press Run in the application. State is in memory and resets when that server/container restarts.
 
 ## Controller workflow
 
@@ -119,6 +129,7 @@ The optional measurement bridge forwards data through the local HTTP ingress. It
 
 | Directory or file | Contents |
 |---|---|
+| `Dockerfile` / `compose.yaml` | Container build and dedicated local service |
 | `src/` | Server and simulation source |
 | `public/` | Browser application and shared model modules |
 | `public/assets/` | Bundled runtime model and HDR environment |
@@ -155,7 +166,7 @@ npm run test:stop
 
 These checks use a separate headless Chrome profile. **They reset and operate the demonstration**, so run them when the current simulation state can be replaced. Screenshots and results are written under ignored `.qa/`.
 
-**Recorded evidence:** version 0.5.0 passed 31 model tests and the mixed-part Windows Chrome selection workflow. Version 0.5.1 received source-relocation, import-path, and documentation-link checks; its runtime tests were not rerun during the organization update. See [validation](docs/validation.md) for the exact scope and limitations.
+**Recorded evidence:** version 0.5.2 passed all **35 unit tests** in an isolated, network-disabled Docker container. The Docker service was built and checked on loopback port **8640**, waiting for explicit selection and Run. Earlier v0.5.0 evidence includes the mixed-part Windows Chrome workflow; a new graphical regression was not run for the Docker update. See [validation](docs/validation.md) for the exact scope and limitations.
 
 ### Rebuild the robot meshes
 
@@ -173,13 +184,14 @@ RailSyn is useful for exploring explicit selection, process ownership, sensor-co
 
 The simulator does not include a physics engine, contact/gravity dynamics, grip-force calculation, continuous collision detection, manufacturer-calibrated geometry or IK, or real-time motion guarantees. The presence check does not validate mechanical compatibility. Synthetic sensor settings and thresholds are illustrative.
 
-No real robot driver is included. The physical-command endpoint rejects requests, and **SIM STOP is not a physical emergency stop**. The local server binds to `127.0.0.1:8630` and uses request-origin checks, a per-process mutation token, bounded JSON input, and a fixed static-file allowlist. Keep the prototype local; see [security boundaries](SECURITY.md).
+No real robot driver is included. The physical-command endpoint rejects requests, and **SIM STOP is not a physical emergency stop**. The native server binds to `127.0.0.1:8630`; Docker publishes only `127.0.0.1:8640`. Both use request-origin checks, a per-process mutation token, bounded JSON input, and a fixed static-file allowlist. Keep the prototype local; see [security boundaries](SECURITY.md).
 
 ## Documentation
 
 | Document | Read it for |
 |---|---|
 | [User guide](docs/guide.md) | Selecting parts, operating the controller, recovering after manual changes, and collecting products |
+| [Docker](docs/docker.md) | Build, start, stop and test the dedicated container on port 8640 |
 | [Architecture](docs/architecture.md) | Runtime responsibilities, file conventions, and model generation |
 | [Integration](docs/integration.md) | Read-only sensor packets and external-bridge boundaries |
 | [Validation](docs/validation.md) | Recorded checks, reproducible commands, and remaining verification gaps |

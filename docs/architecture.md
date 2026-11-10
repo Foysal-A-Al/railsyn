@@ -29,3 +29,7 @@ This rebuilds `public/assets/cell-models.glb`. Normal use does not require Blend
 Run `npm test` for simulation checks. Browser checks require Windows, Chrome at its standard install path and the local server. See the README before running them because they replace the current demonstration state. Use `npm run test:selection` or `npm run test:stop`.
 
 Existing `node server.mjs` commands and the original Windows launcher delegate to the organized application entry points. The organization update changes file locations and documentation, without changing robot tasks or automatic motion behavior.
+
+## Container execution
+
+The dedicated Compose project runs `src/server.mjs` on port 8640 and publishes it only to host loopback. Native execution retains port 8630. `src/config.mjs` validates the port and bind interface without changing the accepted loopback browser authority. The runtime image includes only the server, shared/browser modules, package metadata and runtime assets. See [Docker](docker.md) for isolation and lifecycle commands.
