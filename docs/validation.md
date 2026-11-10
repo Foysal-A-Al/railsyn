@@ -1,4 +1,4 @@
-# Verification â€” 10 November 2026
+# Verification — 10 November 2026
 
 Version 0.5.0: explicit mixed-part selection and one assembly per Run.
 

@@ -2,9 +2,9 @@ import {inverse,forward,degrees,LIMITS} from '../public/kinematics.mjs';
 import {RAIL,railPoint,railYaw} from '../public/rail.mjs';
 import {createInventory,pickupPoint,initialRecipe,validateRecipe} from '../public/catalog.mjs';
 export const CONFIG=[
- {id:'loader',name:'R1 Â· Workpiece transfer',job:'Load body into carrier',tool:'Four-cup vacuum plate',base:[-4.5,0,.85],supply:[-5.35,1.4,.05],station:[-4.5,1.4,2.2],color:'#ef7e2f'},
- {id:'capper',name:'R2 Â· First cap placement',job:'Insert lower cap',tool:'Parallel jaw cap gripper',base:[0,0,3.55],supply:[-.8,1.4,4.25],station:[0,1.475,2.2],color:'#75a6c4'},
- {id:'closer',name:'R3 Â· Upper cap fitting',job:'Fit upper cap',tool:'Three-finger cap collet',base:[4.5,0,.85],supply:[5.3,1.4,.05],station:[4.5,1.525,2.2],color:'#edc52d'}
+ {id:'loader',name:'R1 · Workpiece transfer',job:'Load body into carrier',tool:'Four-cup vacuum plate',base:[-4.5,0,.85],supply:[-5.35,1.4,.05],station:[-4.5,1.4,2.2],color:'#ef7e2f'},
+ {id:'capper',name:'R2 · First cap placement',job:'Insert lower cap',tool:'Parallel jaw cap gripper',base:[0,0,3.55],supply:[-.8,1.4,4.25],station:[0,1.475,2.2],color:'#75a6c4'},
+ {id:'closer',name:'R3 · Upper cap fitting',job:'Fit upper cap',tool:'Three-finger cap collet',base:[4.5,0,.85],supply:[5.3,1.4,.05],station:[4.5,1.525,2.2],color:'#edc52d'}
 ];
 const high=p=>[p[0],p[1]+.55,p[2]];
 CONFIG.forEach(r=>r.home=[r.base[0],2.6,r.base[2]+(r.station[2]-r.base[2])*.5]);
@@ -77,7 +77,7 @@ export class Cell{
    const robot=this.robots.find(r=>r.id===value?.robot);if(!robot||typeof value.engaged!=='boolean'||this.running||this.mode!=='manual'||!this.servo||this.stopped)throw Error('Tool control requires enabled drives and paused manual mode.');
    if(robot.gripper.attached)throw Error('Use reset recovery: releasing an attached part manually is blocked.');robot.gripper.engaged=value.engaged;robot.gripper.width=value.engaged?(robot.id==='capper'?2*(this.product.cap.family==='B'?.10:.09)+.035:2*(this.product.top.family==='B'?.115:.105)+.03):.32;robot.gripper.pressure=value.engaged?-60:0;this.manualDirty=true;this.event(robot.id+' empty tool '+(value.engaged?'closed/on.':'open/off.'));return;
   }
-  if(action==='speed'){if(!Number.isFinite(value)||value<.25||value>1.5)throw Error('Speed must be 0.25â€“1.5.');this.speed=value;return;}
+  if(action==='speed'){if(!Number.isFinite(value)||value<.25||value>1.5)throw Error('Speed must be 0.25–1.5.');this.speed=value;return;}
   if(action==='fault'){if(!Object.hasOwn(this.faults,value))throw Error('Unknown fault.');this.faults[value]=!this.faults[value];this.event(value+' fault '+(this.faults[value]?'injected.':'cleared.'));return;}
   if(action==='source'){if(this.running||!['synthetic','external'].includes(value))throw Error('Pause to select a valid source.');this.source=value;this.samples=[];this.wave=[];this.stableTime=0;return;}
   throw Error('Unknown simulation command.');
@@ -100,7 +100,7 @@ export class Cell{
   this.rms=this.samples.length?Math.max(...[0,1,2].map(axis=>Math.sqrt(this.samples.reduce((s,a)=>s+a[axis]**2,0)/this.samples.length))):0;
   if(!fresh){this.stableTime=0;this.setHold('Sensor heartbeat missing or stale. Joints and carrier held.');return;}
   if(this.faults.robotA){this.setHold('Loader unavailable: line handoff held; parts remain tracked.');return;}
-  if(!isIndex&&!settle&&this.rms>.3){this.setHold('Vibration exceeds illustrative 0.30 m/sÂ² gate.');return;}
+  if(!isIndex&&!settle&&this.rms>.3){this.setHold('Vibration exceeds illustrative 0.30 m/s² gate.');return;}
   if(settle){this.phaseTime+=dt*this.speed;this.stableTime=this.rms<=.3?this.stableTime+dt:0;if(this.stableTime<.6){this.setHold('Docked carrier must remain settled for 600 ms.');return;}if(this.source==='external'&&!this.external.partPresent){this.setHold('Carrier presence is not confirmed.');return;}}
   if(stage.id.endsWith('_grip')){
    robot.gripper.engaged=true;robot.gripper.width+=((robot.id==='capper'?2*(this.product.cap.family==='B'?.10:.09)+.035:2*(this.product.top.family==='B'?.115:.105)+.03)-robot.gripper.width)*Math.min(1,dt*8);const target=this.faults.grip?-8:-62;robot.gripper.pressure+=(target-robot.gripper.pressure)*Math.min(1,dt*6);

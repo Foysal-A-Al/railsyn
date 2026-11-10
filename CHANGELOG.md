@@ -1,6 +1,6 @@
 # Change history
 
-## 0.5.1 â€” 2026-11-10
+## 0.5.1 — 2026-11-10
 
 - Organize runtime code under `src/`, unit/browser checks under `tests/`, and the Blender generator under `scripts/`.
 - Add a concise README, development architecture, security boundaries and asset credits.
@@ -8,7 +8,7 @@
 - Exclude local profiles, test recordings, exports, credentials and temporary files from Git.
 - Preserve explicit three-part selection and one assembly per Run.
 
-## 0.5.0 â€” 2026-11-10
+## 0.5.0 — 2026-11-10
 
 - Allow any in-stock cup, cap and top-cover combination without type matching.
 - Remove automatic matching and multi-job batches.

@@ -14,7 +14,7 @@ The rail has long straight sections, compact rounded corners and a return lane. 
 
 ## Choose exactly what to pick
 
-The **Job setup** panel is the source of the active recipe. Choose B1â€“B4 for the cup/body fixture, C1â€“C9 for the lower cap and T1â€“T9 for the upper cover. The same numbered pockets can be selected by clicking parts in the 3D view. Rings highlight the preview selection; color, family and quantity are shown in the tray maps.
+The **Job setup** panel is the source of the active recipe. Choose B1–B4 for the cup/body fixture, C1–C9 for the lower cap and T1–T9 for the upper cover. The same numbered pockets can be selected by clicking parts in the 3D view. Rings highlight the preview selection; color, family and quantity are shown in the tray maps.
 
 - Select all three sources yourself. Any in-stock combination is allowed, including mixed A/B types. Types are descriptive metadata; physical fit, contact and forces are not evaluated.
 - **Apply selection** updates actual robot pickup points, including the exposed height of a double-stack cover. It does not move a robot.
@@ -37,7 +37,7 @@ The outfeed is a proposed simulation mechanism, not equipment confirmed in the s
 The large dark **ROBOT CONTROLLER** panel sits beside the scene on desktop. R1/R2/R3 tabs select the controlled robot.
 
 - Enable simulated drives, then press Run in PROGRAM mode.
-- Pause and switch to MANUAL to jog any of six joints in 1Â° or 5Â° increments. Only the selected robot changes.
+- Pause and switch to MANUAL to jog any of six joints in 1° or 5° increments. Only the selected robot changes.
 - Empty tools can open/close or switch vacuum on/off in manual mode. Manually releasing carried parts is blocked.
 - Record pose adds the current selected robot's joints and TCP to the run export. Recorded points do not automatically become a new motion program.
 - Step runs one process stage and pauses. Reset cell resets the modeled demonstration. Simulation Stop latches; the visible Clear simulation stop button acknowledges it while preserving the selection, stock and poses, with drives still off. Run recipe then enables Program mode and simulated drives. Both Run buttons use the selected recipe at the loader.
@@ -54,6 +54,6 @@ The three visual styles are estimated industrial-arm concepts, not licensed/cali
 
 ## Sensors and research
 
-The accelerometer is a clearly labeled synthetic 200 Hz damped-sine test signal. The gate uses maximum per-axis RMS over 100 samples and a 600 ms stable dwell after carrier indexing. The 0.30 m/sÂ² threshold and pressure response are illustrative. External packets can replace acceleration and presence/grip confirmation through a read-only local HTTP ingress; pressures and other I/O remain model states. External RMS uses up to 100 packets, with no guaranteed fixed-duration window.
+The accelerometer is a clearly labeled synthetic 200 Hz damped-sine test signal. The gate uses maximum per-axis RMS over 100 samples and a 600 ms stable dwell after carrier indexing. The 0.30 m/s² threshold and pressure response are illustrative. External packets can replace acceleration and presence/grip confirmation through a read-only local HTTP ingress; pressures and other I/O remain model states. External RMS uses up to 100 packets, with no guaranteed fixed-duration window.
 
 Faults cover excess vibration, heartbeat loss, grip confirmation failure, assembly verification failure and output blockage. An in-flight grip fault holds motion and retains the modeled payload; this does not simulate the physical consequence of losing a real grip. See `integration.md` for the packet contract and `research.md` for the research hypothesis and prior art. Novelty and performance improvements remain unproven.

@@ -1,4 +1,4 @@
-# Direction and prior art â€” 10 November 2026
+# Direction and prior art — 10 November 2026
 
 ## The proposed contribution
 
@@ -6,11 +6,11 @@ A sensor-aware handoff coordinator combining vibration settling, packet freshnes
 
 Novelty is unresolved. A short search cannot prove that no one has considered this. Robot/sensor simulation, industrial hardware abstractions, multi-robot conveyor coordination and vibration-reducing pick/place methods already exist:
 
-- NVIDIA Isaac Sim: https://developer.nvidia.com/isaac/sim â€” robot/sensor simulation and digital twins.
-- ROS 2 hardware interfaces: https://control.ros.org/jazzy/doc/ros2_control/hardware_interface/doc/hardware_interface_types_userdoc.html â€” joint, sensor and GPIO interfaces.
-- Bozma and KalalÄ±oÄŸlu, Multirobot coordination in pick-and-place tasks on a moving conveyor: https://doi.org/10.1016/j.rcim.2011.12.001
+- NVIDIA Isaac Sim: https://developer.nvidia.com/isaac/sim — robot/sensor simulation and digital twins.
+- ROS 2 hardware interfaces: https://control.ros.org/jazzy/doc/ros2_control/hardware_interface/doc/hardware_interface_types_userdoc.html — joint, sensor and GPIO interfaces.
+- Bozma and Kalalıoğlu, Multirobot coordination in pick-and-place tasks on a moving conveyor: https://doi.org/10.1016/j.rcim.2011.12.001
 - Shan et al., Residual Vibration Reduction of High-Speed Pick-and-Place Parallel Robot Using Input Shaping: https://doi.org/10.1186/s10033-022-00679-3
-- BrÃ¼ckmann et al., Optimal control approach for trajectory determination to suppress residual frame vibrations of delta robots in pick and place tasks: https://doi.org/10.1016/j.mechmachtheory.2025.106302
+- Brückmann et al., Optimal control approach for trajectory determination to suppress residual frame vibrations of delta robots in pick and place tasks: https://doi.org/10.1016/j.mechmachtheory.2025.106302
 
 These papers concern related problems and do not establish novelty of this prototype. The present prototype does not implement their optimization or input-shaping algorithms.
 
