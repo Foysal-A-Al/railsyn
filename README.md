@@ -1,16 +1,15 @@
 <div align="center">
 
-# 🤖 RailSyn
+![RailSyn — Three robots. Three distinct jobs. One coordinated rail line.](docs/images/banner.svg)
 
-### Three robots. Three distinct jobs. One coordinated rail line.
-
-An interactive assembly simulator for operator-selected products, robot coordination, and sensor-aware handoffs.
-
-[Quick start](#quick-start) · [Controller workflow](#controller-workflow) · [Architecture](#architecture) · [Documentation](#documentation)
+[![Quick start](https://img.shields.io/badge/Quick_start-173D59?style=for-the-badge)](#quick-start)
+[![Controller workflow](https://img.shields.io/badge/Controller_workflow-173D59?style=for-the-badge)](#controller-workflow)
+[![Architecture](https://img.shields.io/badge/Architecture-173D59?style=for-the-badge)](#architecture)
+[![Documentation](https://img.shields.io/badge/Documentation-176B70?style=for-the-badge)](#documentation)
 
 </div>
 
-![RailSyn — Three robots. One coordinated line.](docs/images/banner.svg)
+---
 
 ## Overview
 
