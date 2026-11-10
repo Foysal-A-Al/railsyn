@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="440" viewBox="0 0 1600 440" role="img" aria-labelledby="title desc">
-  <title id="title">RailSyn — Three robots. One coordinated line.</title>
+  <title id="title">RailSyn — Three robots. Three distinct jobs. One coordinated rail line.</title>
   <desc id="desc">RailSyn project banner with an abstract rail and three distinct robot stations.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b172c"/><stop offset="1" stop-color="#122c48"/></linearGradient>
@@ -12,12 +12,10 @@
   <g font-family="Segoe UI,Arial,sans-serif">
     <text x="76" y="82" fill="#63d4d0" font-size="17" font-weight="600" letter-spacing="4">ROBOTICS / ASSEMBLY / COORDINATION</text>
     <text x="70" y="197" fill="#f5f9ff" font-size="103" font-weight="750" letter-spacing="-4">RailSyn<tspan fill="#61d7d0">.</tspan></text>
-    <text x="76" y="251" fill="#b8cce0" font-size="27">Three robots. One coordinated line.</text>
-    <g font-size="15" font-weight="600" letter-spacing="1">
-      <rect x="76" y="301" width="188" height="42" rx="21" fill="#1c3853"/><text x="170" y="328" text-anchor="middle" fill="#e5effa">SELECT YOUR PARTS</text>
-      <rect x="278" y="301" width="170" height="42" rx="21" fill="#1c3853"/><text x="363" y="328" text-anchor="middle" fill="#e5effa">RUN ONE JOB</text>
-      <rect x="462" y="301" width="163" height="42" rx="21" fill="#163d48"/><text x="543.5" y="328" text-anchor="middle" fill="#81e0d6">INSPECT OUTPUT</text>
-    </g>
+    <text x="76" y="248" fill="#d1e1ef" font-size="23">Three robots. Three distinct jobs. One coordinated rail line.</text>
+    <text x="76" y="290" fill="#9db6cc" font-size="20">An interactive assembly simulator for operator-selected products,</text>
+    <text x="76" y="319" fill="#9db6cc" font-size="20">robot coordination, and sensor-aware handoffs.</text>
+    <text x="76" y="360" fill="#73d8ce" font-size="14" font-weight="600" letter-spacing="1.5">SELECT PARTS  /  RUN ONE JOB  /  INSPECT OUTPUT</text>
     <g fill="none" stroke-linecap="round" stroke-linejoin="round">
       <rect x="870" y="226" width="618" height="132" rx="54" stroke="#385571" stroke-width="23"/>
       <rect x="870" y="226" width="618" height="132" rx="54" stroke="url(#rail)" stroke-width="3"/>
