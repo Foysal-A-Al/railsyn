@@ -1,0 +1,13 @@
+**
+!Dockerfile.trial2
+!package.json
+!trial2/
+!trial2/**
+!public/
+!public/vendor/
+!public/vendor/**
+!public/assets/
+!public/assets/studio_small_09_1k.hdr
+!public/assets/cell-models.glb
+trial2/**/__pycache__/
+trial2/**/*.pyc

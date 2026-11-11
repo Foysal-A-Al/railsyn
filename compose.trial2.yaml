@@ -1,0 +1,29 @@
+name: railsyn-trial2
+services:
+  app:
+    image: railsyn:trial2
+    build:
+      context: .
+      dockerfile: Dockerfile.trial2
+      target: runtime
+    ports:
+      - "127.0.0.1:8641:8641"
+    init: true
+    user: "1000:1000"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16777216,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 384m
+    cpus: 1.0
+    restart: unless-stopped
+    stop_grace_period: 10s
+    networks: [cell]
+networks:
+  cell:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
+      com.docker.network.bridge.enable_icc: "false"

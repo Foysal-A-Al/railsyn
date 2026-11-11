@@ -1,5 +1,7 @@
 # Verification — 10 November 2026
 
+> This document describes **Trial 1**. For the new independent experiment, see [Trial 2](trial2.md).
+
 Version 0.5.0: explicit mixed-part selection and one assembly per Run.
 
 ## Automated model checks

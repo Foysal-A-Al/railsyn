@@ -1,0 +1,17 @@
+FROM node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 AS base
+WORKDIR /app
+ENV NODE_ENV=production HOME=/tmp TMPDIR=/tmp RAILSYN_BIND_HOST=0.0.0.0
+COPY --chown=node:node package.json ./
+COPY --chown=node:node trial2/package.json trial2/cell.mjs trial2/server.mjs ./trial2/
+COPY --chown=node:node trial2/public/ ./trial2/public/
+COPY --chown=node:node public/vendor/ ./public/vendor/
+COPY --chown=node:node public/assets/studio_small_09_1k.hdr ./public/assets/studio_small_09_1k.hdr
+COPY --chown=node:node public/assets/cell-models.glb ./public/assets/cell-models.glb
+USER node
+FROM base AS test
+COPY --chown=node:node trial2/tests/ ./trial2/tests/
+CMD ["node", "--test", "--test-concurrency=1", "trial2/tests/*.test.mjs"]
+FROM base AS runtime
+EXPOSE 8641
+HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=3 CMD node -e "fetch('http://127.0.0.1:8641/api/health').then(async r=>{const s=await r.json();if(!r.ok||s.trial!==2||s.hardwareOutput!==false)process.exit(1)}).catch(()=>process.exit(1))"
+CMD ["node", "trial2/server.mjs"]

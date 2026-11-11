@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RailSyn · Trial 2</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+<a class="brand" href="/">R<span>·</span> <strong>RailSyn</strong>
+</a>
+<span class="studio">Assembly Studio</span>
+<nav class="main-tabs">
+<button data-page="workbench" class="selected">◇ Workbench</button>
+<button data-page="guide">▤ How it works</button>
+</nav>
+<span class="badge">TRIAL 2</span>
+<span class="simulation">SIMULATION</span>
+<a class="compare" href="http://127.0.0.1:8640" target="_blank" rel="noopener">Trial 1 ↗</a>
+<button id="export">Export run ↓</button>
+</header>
+<main id="workbench" class="page">
+<aside class="inventory panel">
+<div class="panel-title">BUILD YOUR ASSEMBLY <small>SELECT SOURCES</small>
+</div>
+<div id="inventory">
+</div>
+<label class="field-label" for="destination">Destination</label>
+<select id="destination">
+<option value="dispatch">Finished-product rack</option>
+</select>
+<div id="selection-left" class="recipe-summary">Choose three parts</div>
+<p class="muted small">Mixed types allowed. Fit and forces are not evaluated.</p>
+<p class="ready-hint">Review and Run in the controller →</p>
+</aside>
+<section class="center">
+<div class="viewport panel">
+<div class="view-header">
+<b>ORIGINAL 3D CELL</b>
+<span id="asset-state">Loading geometry…</span>
+<div class="camera-tabs">
+<button data-view="all" class="selected">All</button>
+<button data-view="fanuc">FANUC</button>
+<button data-view="setup">Setup</button>
+<button data-view="ur3e">UR3e</button>
+<button data-view="ur10">UR10</button>
+<button data-view="dispatch">Dispatch</button>
+<button data-view="plan">Plan</button>
+</div>
+</div>
+<div id="scene">
+<div id="scene-error" hidden>
+</div>
+<div class="scene-caption">Blender robot meshes · Simulated geometry</div>
+<div class="orbit-hint">Drag to orbit · Scroll to zoom · Click a part to select</div>
+</div>
+</div>
+<div class="process panel">
+<div>
+<b id="job-id">NO ACTIVE JOB</b>
+<span id="job-stage">Waiting for your selection</span>
+</div>
+<div id="stage-progress">
+</div>
+<div class="carrier-row">
+<span id="s1">S1 · Docked</span>
+<span>S2 · Parked</span>
+<span>S3 · Parked</span>
+<small>One active shuttle in Trial 2</small>
+</div>
+</div>
+<div class="collection panel">
+<div class="section-heading">
+<b>FINISHED COLLECTION</b>
+<span id="collected">0 / 4</span>
+</div>
+<div id="output">
+</div>
+</div>
+<details class="diagnostics panel">
+<summary>Process events & simulated fault scenarios</summary>
+<div id="faults">
+</div>
+<div id="events">
+</div>
+</details>
+</section>
+<aside class="controller panel">
+<div class="controller-title">⌁ CELL CONTROLLER <span id="status">IDLE</span>
+</div>
+<div class="job-controls">
+<div class="section-heading">
+<small>SELECTED JOB</small>
+<button id="apply">Add recipe</button>
+</div>
+<strong id="selection-controller">Choose three parts</strong>
+<p id="recipe-message">Choose a workpiece, first cap and cover.</p>
+<ol id="recipe-queue" class="recipe-queue" aria-label="Recipe queue"></ol>
+<button id="load-workpiece" class="primary" hidden>Place workpiece</button>
+<button id="run" class="primary" disabled>▶ Start queue</button>
+<p class="one-job">Up to four recipes. Each shuttle stops for loading.</p>
+<div class="button-row">
+<button id="pause">Ⅱ Pause / Hold</button>
+<button id="step">▷ Step stage</button>
+</div>
+</div>
+<div class="robot-section">
+<div id="robot-tabs">
+</div>
+<h2 id="robot-name">
+</h2>
+<p id="robot-job">
+</p>
+<div class="mode-row">
+<button id="program" class="selected">Program</button>
+<button id="manual">Manual</button>
+</div>
+<div class="tool-preview">
+<canvas id="tool-preview" width="360" height="150">
+</canvas>
+<div>
+<b id="tool-name">
+</b>
+<span id="tool-state">
+</span>
+</div>
+</div>
+<div class="axis-header">
+<span>Joint</span>
+<span>Angle</span>
+<span>Jog</span>
+</div>
+<div id="joints">
+</div>
+<div class="coordinate">
+<span>TOOL CENTRE POINT <small>CONCEPT WORLD / mm</small>
+</span>
+<div id="tcp">
+</div>
+</div>
+<div class="button-row compact">
+<label>Jog increment <select id="jog-step">
+<option value="1">1°</option>
+<option value="5">5°</option>
+</select>
+</label>
+<button id="recover">↶ Recover</button>
+</div>
+<div class="button-row">
+<button id="open">Open gripper</button>
+<button id="close">Close gripper</button>
+</div>
+<label class="speed-label" for="speed">Program speed <b id="speed-value">1.00×</b>
+</label>
+<input id="speed" type="range" min=".25" max="2" step=".25" value="1">
+<div class="button-row">
+<button id="drives">● Drives OFF</button>
+<button id="reset">Reset trial</button>
+</div>
+<p id="controller-notice" class="small muted">
+</p>
+</div>
+<button id="stop" class="stop">■ SIM STOP</button>
+<button id="ack" hidden>Clear simulation stop</button>
+<p class="safety">Modeled sensors & vision · Physical output disabled</p>
+<p id="error" role="alert">
+</p>
+</aside>
+</main>
+<main id="guide" class="page" hidden>
+<div class="guide-tabs">
+<button data-guide="flow" class="selected">Production flow</button>
+<button data-guide="hardware">Robot & tool roles</button>
+<button data-guide="controls">Control & handoffs</button>
+<button data-guide="responses">System responses</button>
+<button data-guide="research">Optimization study</button>
+</div>
+<div id="guide-content">
+</div>
+</main>
+<script type="module" src="/app.js">
+</script>
+</body>
+</html>

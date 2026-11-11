@@ -1,5 +1,7 @@
 # Using RailSyn
 
+> This document describes **Trial 1**. For the new independent experiment, see [Trial 2](trial2.md).
+
 ## Three different jobs
 
 | Cell | Operation | Tool | Station |

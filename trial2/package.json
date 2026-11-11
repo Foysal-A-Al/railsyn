@@ -1,0 +1,12 @@
+{
+  "name": "railsyn-trial2",
+  "version": "0.6.7",
+  "private": true,
+  "type": "module",
+  "description": "Original three-robot rail assembly experiment",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs"
+  },
+  "engines": {"node": ">=22"}
+}

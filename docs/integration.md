@@ -1,5 +1,7 @@
 # Read-only connection contract
 
+> This document describes **Trial 1**. For the new independent experiment, see [Trial 2](trial2.md).
+
 The app does not move real equipment. A bridge running locally can forward measured data into the simulated controller. The packet model is intentionally independent of a vendor.
 
 1. Run the app on the computer receiving the measurement stream.

@@ -1,5 +1,7 @@
 # Architecture and development
 
+> This document describes **Trial 1**. For the new independent experiment, see [Trial 2](trial2.md).
+
 ## Runtime
 
 `src/server.mjs` owns one in-memory `Cell` from `src/simulation.mjs`, ticks it every 50 ms and serves only allowlisted local browser files. The process state is not saved across server restarts; export a run from the controller before closing the server if you need it.

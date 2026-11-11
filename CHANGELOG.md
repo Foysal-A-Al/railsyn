@@ -1,5 +1,22 @@
 # Change history
 
+## 0.6.7 · Trial 2 — 2026-11-11
+
+- Add a four-recipe queue and an animated operator loading stop for each job.
+- Use detailed Blender robot meshes, payload-specific gripper contact points, and Smart Mini Factory / unibz scene markings.
+- Place the modeled inspection camera beside the shuttle rail.
+- Add command and handoff diagrams, live system responses and a seven-setting speed study that runs in an isolated browser worker.
+- Verify 18 model/API tests and a Chromium workflow covering the study and four ordered dispatches.
+
+## 0.6.0 · Trial 2 — 2026-11-10
+
+- Preserve Trial 1 with a Git tag/branch and independent existing Docker service.
+- Add a separate Trial 2 app and Compose project on loopback port 8641.
+- Model a branched rectangular rail, automated setup, FANUC tray handling, UR3e assembly and UR10 dispatch with distinct original grippers.
+- Consolidate execution in the right controller; retain explicit mixed source selection and one job per Run.
+- Add native production-flow, tool-role and conceptual research explanation tabs.
+- Cover process, recovery and local HTTP boundaries with 15 isolated tests.
+
 ## 0.5.2 — 2026-11-10
 
 - Add a pinned Node Docker image, isolated test target, and a dedicated RailSyn Compose service.

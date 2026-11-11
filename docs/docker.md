@@ -1,5 +1,7 @@
 # Docker
 
+> This document describes **Trial 1**. For the new independent experiment, see [Trial 2](trial2.md).
+
 ## Start the application
 
 Docker Desktop must be running with Linux containers enabled. From the repository root:
