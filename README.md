@@ -32,7 +32,9 @@
 
 ## Quick start
 
-Docker Desktop must be running with Linux containers enabled. No npm installation, API key or paid service is needed.
+**Requirements:** Docker Desktop and Git. Nothing else. No Node.js, npm, API key or paid service. This is a public repository, so anyone can clone and run it on Windows, macOS or Linux with the steps below.
+
+Docker Desktop must be running with Linux containers enabled.
 
 ```sh
 git clone https://github.com/Foysal-A-Al/railsyn.git
@@ -148,4 +150,4 @@ Both containers publish only on host loopback. Mutations require a process-local
 
 Maintained by **Abdullah Al Foysal** · [Foysal-A-Al](https://github.com/Foysal-A-Al).
 
-Private research repository; no open-source license is assigned to project code. Three.js retains its [MIT license](public/vendor/THREE-LICENSE.txt), and the bundled Poly Haven lighting environment is CC0. Robot/tool meshes are project-created estimates rather than manufacturer CAD. See [credits](docs/credits.md).
+Public research repository. No open-source license is assigned to project code yet, so the source is viewable and runnable but not yet licensed for redistribution or reuse. Three.js retains its [MIT license](public/vendor/THREE-LICENSE.txt), and the bundled Poly Haven lighting environment is CC0. Robot/tool meshes are project-created estimates rather than manufacturer CAD. See [credits](docs/credits.md).
